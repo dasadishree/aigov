@@ -27,3 +27,9 @@ def explainIngredients(ingredientList):
     )
 
     return response.choices[0].message.content
+
+#input
+ingredients = input("Paste ingredient list here:")
+output=explainIngredients(ingredients)
+print("\n---Ingredient Explanation---\n")
+print(output)
