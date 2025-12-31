@@ -1,3 +1,5 @@
+#ai logic
+
 import os
 import requests
 # from openai import OpenAI
