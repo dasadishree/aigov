@@ -5,19 +5,21 @@ from dotenv import load_dotenv
 
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
-url="https://api.openai.com/v1/chat/completions"
+url="https://ai.hackclub.com/proxy/v1/chat/completions"
 
 def explainIngredients(ingredientList):
     prompt=f"""
     Explain each ingredient below. 
-    For each ingredient, say:
+    For each ingredient, output in this format:
+
+    Ingredient:
     - What it is (both scientifically and common names)
     - Why it's used
-    - Possible effects, both positive and negative
+    - Possible heatlh/energy effects, sorted into positive and negative
     Make this understandable to the average person so that they can make informed decisions and actually understand what they are eating/consuming
 
     Ingredients:
-
+    {ingredientList}
     """
 
     data ={
