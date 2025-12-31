@@ -41,8 +41,8 @@ def explainIngredients(ingredientList):
     response.raise_for_status()
     return response.json()["choices"][0]["message"]["content"]
 
-#input
-ingredients = input("Paste ingredient list here:")
-output=explainIngredients(ingredients)
-print("\n---Ingredient Explanation---\n")
-print(output)
+#input test
+# ingredients = input("Paste ingredient list here:")
+# output=explainIngredients(ingredients)
+# print("\n---Ingredient Explanation---\n")
+# print(output)

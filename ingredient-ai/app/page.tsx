@@ -9,7 +9,7 @@ export default function Home() {
   async function handleAnalyze() {
     setLoading(true);
 
-    const res = await fetch("/api/analyze", {
+    const res = await fetch("http://127.0.0.1:5000/analyze", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ingredients }),
