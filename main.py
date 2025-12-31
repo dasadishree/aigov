@@ -25,7 +25,7 @@ def explainIngredients(ingredientList):
     """
 
     data ={
-        "model": "qwen/qwen3-32b",
+        "model": "openai/gpt-5-mini",
         "messages": [
             {"role": "system", "content": "You're an assistant/food nutrition scientist helping the average person understand ingredient lists for their food items"},
             {"role": "user", "content" : prompt}
