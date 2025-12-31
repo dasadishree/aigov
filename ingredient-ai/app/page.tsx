@@ -36,6 +36,7 @@ export default function Home() {
           {loading ? "Analyzing..." : "Analyze Ingredients"}
         </button>
 
+        <pre style={{ marginTop: 20}}>{result}</pre>
     </main>
   );
 }
