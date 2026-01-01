@@ -1,5 +1,8 @@
 "use client";
 import { useState } from "react";
+import labelImg from "./label.png";
+import labelPile1Img from "./labelpile.png";
+import labelPile2Img from "./labelpile2.webp";
 
 export default function Home() {
   const [ingredients, setIngredients] = useState("");
@@ -23,25 +26,22 @@ export default function Home() {
   
   return (
     <main>
-      <div id="background-elements">
-        <div className="floating-shape shape-1"></div>
-        <div className="floating-shape shape-2"></div>
-        <div className="floating-shape shape-3"></div>
-        <div className="grid-pattern"></div>
-        <div className="decorative-line line-1"></div>
-        <div className="decorative-line line-2"></div>
-        <div className="decorative-dot dot-1"></div>
-        <div className="decorative-dot dot-2"></div>
-        <div className="decorative-dot dot-3"></div>
-        <div className="decorative-dot dot-4"></div>
-      </div>
+      <div className="grid-pattern"></div>
       <div id="centered-content">
         <h1>beyond the box:</h1>
         <h2>eat informed</h2>
         <button id="start-button">START NOW</button>
       </div>
+
+      <div id="did-you-know">
+        <h3>DID YOU KNOW?</h3>
+        <p>Natural flavor can mean hundreds of different compounds, and companies don't have to list them individually.</p>
+      </div>
+      <img src={labelPile1Img.src} alt="Label pile image for decoration." id="labelPile1" />
+      <img src={labelPile2Img.src} alt="Label pile image for decoration." id="labelPile2" />
+        
         {/* <textarea 
-          rows={6}
+          rows={6} 
           placeholder="Paste ingredient list here..."
           value={ingredients}
           onChange={(e)=>setIngredients(e.target.value)}

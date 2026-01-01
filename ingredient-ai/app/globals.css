@@ -21,13 +21,13 @@
   }
 }
 
+/* gradient &setup stuff */
 html, body {
   height: 100vh;
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
-
 body {
   background: linear-gradient(135deg, #abb5ff 0%, #8fa0ff 35%, #c5cfff 70%, #d9e0ff 100%);
   color: var(--foreground);
@@ -35,7 +35,6 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 body::before {
   content: '';
   position: absolute;
@@ -52,7 +51,6 @@ body::before {
   z-index: 0;
   animation: pulse 8s ease-in-out infinite;
 }
-
 body::after {
   content: '';
   position: absolute;
@@ -80,22 +78,7 @@ body::after {
   opacity: 0.5;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-}
-
-#background-elements {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
+/* grid background */
 .grid-pattern {
   position: absolute;
   top: 0;
@@ -110,133 +93,6 @@ body::after {
   z-index: 0;
 }
 
-.decorative-line {
-  position: absolute;
-  background: linear-gradient(90deg, transparent, rgba(39, 53, 110, 0.2), transparent);
-  z-index: 0;
-}
-
-.line-1 {
-  width: 40%;
-  height: 2px;
-  top: 20%;
-  left: 10%;
-  transform: rotate(-15deg);
-  animation: linePulse 4s ease-in-out infinite;
-}
-
-.line-2 {
-  width: 35%;
-  height: 2px;
-  bottom: 25%;
-  right: 15%;
-  transform: rotate(20deg);
-  animation: linePulse 5s ease-in-out infinite;
-  animation-delay: -2s;
-}
-
-.decorative-dot {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(39, 53, 110, 0.2);
-  z-index: 0;
-  animation: dotFloat 8s ease-in-out infinite;
-}
-
-.dot-1 {
-  width: 8px;
-  height: 8px;
-  top: 15%;
-  left: 25%;
-  animation-delay: 0s;
-}
-
-.dot-2 {
-  width: 12px;
-  height: 12px;
-  top: 60%;
-  right: 30%;
-  animation-delay: -2s;
-}
-
-.dot-3 {
-  width: 6px;
-  height: 6px;
-  bottom: 35%;
-  left: 20%;
-  animation-delay: -4s;
-}
-
-.dot-4 {
-  width: 10px;
-  height: 10px;
-  top: 40%;
-  right: 20%;
-  animation-delay: -6s;
-}
-
-@keyframes linePulse {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.4; }
-}
-
-@keyframes dotFloat {
-  0%, 100% {
-    transform: translateY(0) translateX(0);
-    opacity: 0.2;
-  }
-  50% {
-    transform: translateY(-20px) translateX(10px);
-    opacity: 0.4;
-  }
-}
-
-.floating-shape {
-  position: absolute; 
-  border-radius: 50%;
-  opacity: 0.15;
-  animation: float 20s ease-in-out infinite;
-}
-
-.shape-1 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(39, 53, 110, 0.3), transparent);
-  top: -100px;
-  left: -100px;
-  animation-delay: 0s;
-}
-
-.shape-2 {
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(171, 181, 255, 0.4), transparent);
-  bottom: -50px;
-  right: 20%;
-  animation-delay: -7s;
-}
-
-.shape-3 {
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(197, 207, 255, 0.3), transparent);
-  top: 40%;
-  right: -50px;
-  animation-delay: -14s;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  33% {
-    transform: translate(30px, -30px) rotate(120deg);
-  }
-  66% {
-    transform: translate(-20px, 20px) rotate(240deg);
-  }
-}
-
 main {
   position: relative;
   height: 100vh;
@@ -248,6 +104,7 @@ main {
   z-index: 1;
 }
 
+/* 1st page */
 #centered-content {
   display: flex;
   flex-direction: column;
@@ -257,6 +114,7 @@ main {
   width: 100%;
 }
 
+/* text */
 h1{
   font-weight: 750;
   margin: 0;
@@ -269,7 +127,6 @@ h1{
   text-shadow: 0 2px 10px rgba(39, 53, 110, 0.1);
   text-align: center;
 }
-
 h2{
   font-weight: 450;
   margin: 0;
@@ -283,7 +140,8 @@ h2{
   text-align: center;
   margin-bottom: 2vh;
 }
- 
+
+/* start button */
 #start-button {
   background: var(--foreground);
   color: var(--background);
@@ -307,7 +165,6 @@ h2{
   position: relative;
   display: block;
 }
-
 #start-button::before {
   content: '';
   position: absolute;
@@ -321,12 +178,10 @@ h2{
   transition: width 0.6s, height 0.6s;
   z-index: -1;
 }
-
 #start-button:hover::before {
   width: 300px;
   height: 300px;
 }
-
 #start-button:hover {
   transform: scale(1.08);
   box-shadow: 
@@ -334,7 +189,73 @@ h2{
     0 0 30px rgba(171, 181, 255, 0.6);
   border-color: rgba(171, 181, 255, 0.8);
 }
-
 #start-button:active {
   transform: scale(1.02);
+}
+
+
+/* labels */
+#labelPile1, #labelPile2 {
+  position: absolute;
+  z-index: 1;
+  opacity: 0.7;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 4px 8px rgba(39, 53, 110, 0.2));
+}
+#labelPile1 {
+  bottom: -9%; 
+  right: -7%; 
+  width: 30vw;
+  transform: rotate(20deg);
+  animation: floatDeco2 18s ease-in-out infinite;
+  animation-delay: -5s;
+}
+#labelPile2 {
+  top: -10%;
+  left: -5%;
+  width: 30vw;
+  transform: rotate(-10deg);
+  animation: floatDeco3 16s ease-in-out infinite;
+  animation-delay: -10s;
+}
+@keyframes floatDeco2 {
+  0%, 100% {
+    transform: translateY(0) rotate(20deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(25deg);
+  }
+}
+@keyframes floatDeco3 {
+  0%, 100% {
+    transform: translateY(0) rotate(-10deg);
+  }
+  50% {
+    transform: translateY(-35px) rotate(-5deg);
+  }
+}
+
+#did-you-know {
+  position: absolute;
+  bottom: 5vh;
+  left: 3vw; 
+  max-width: 400vw;
+  z-index: 2;
+}
+
+#did-you-know h3 {
+  margin: 0 0 0.8vw 0;
+  font-size: 1.2vw;
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: 0.05em;
+}
+
+#did-you-know p {
+  margin: 0;
+  font-size: 0.9vw;
+  line-height: 1.5;
+  color: var(--foreground);
+  opacity: 0.9;
 }
