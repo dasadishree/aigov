@@ -23,9 +23,20 @@ export default function Home() {
   
   return (
     <main>
-        <h1>Ingredient Explainer</h1>
-
-        <textarea 
+      <div id="background-elements">
+        <div className="floating-shape shape-1"></div>
+        <div className="floating-shape shape-2"></div>
+        <div className="floating-shape shape-3"></div>
+        <div className="grid-pattern"></div>
+      </div>
+      <div id="main-container">
+        <div id="main-text">
+          <h1>beyond the box:</h1>
+          <h2>eat informed</h2>
+        </div>
+      </div>
+        <button id="start-button">START NOW</button>
+        {/* <textarea 
           rows={6}
           placeholder="Paste ingredient list here..."
           value={ingredients}
@@ -34,7 +45,7 @@ export default function Home() {
 
         <button onClick={handleAnalyze} disabled={loading}>
           {loading ? "Analyzing..." : "Analyze Ingredients"}
-        </button>
+        </button> */}
 
         <pre style={{ marginTop: 20}}>{result}</pre>
     </main>
