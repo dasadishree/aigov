@@ -28,14 +28,18 @@ export default function Home() {
         <div className="floating-shape shape-2"></div>
         <div className="floating-shape shape-3"></div>
         <div className="grid-pattern"></div>
+        <div className="decorative-line line-1"></div>
+        <div className="decorative-line line-2"></div>
+        <div className="decorative-dot dot-1"></div>
+        <div className="decorative-dot dot-2"></div>
+        <div className="decorative-dot dot-3"></div>
+        <div className="decorative-dot dot-4"></div>
       </div>
-      <div id="main-container">
-        <div id="main-text">
-          <h1>beyond the box:</h1>
-          <h2>eat informed</h2>
-        </div>
-      </div>
+      <div id="centered-content">
+        <h1>beyond the box:</h1>
+        <h2>eat informed</h2>
         <button id="start-button">START NOW</button>
+      </div>
         {/* <textarea 
           rows={6}
           placeholder="Paste ingredient list here..."
