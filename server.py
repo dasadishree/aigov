@@ -3,6 +3,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from main import explainIngredients
+from PIL import Image
+import pytesseract
 
 app=Flask(__name__)
 CORS(app)
@@ -22,9 +24,14 @@ def analyze():
 # image scan
 @app.route("/scan", methods=["POST"])
 def scan():
+    if "image" not in request.files:
+        return jsonify({"error": "No image provided"}), 400
     file=request.files["image"]
-    print(file.filename)
-    return {"status": "ok"}
+    img = Image.open(file)
+    
+    text = pytesseract.image_to_string(img)
+    text=text.strip()
+    return jsonify({"text": text})
 
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
