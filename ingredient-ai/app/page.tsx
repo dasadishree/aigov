@@ -1,8 +1,5 @@
 "use client";
 import { useRouter } from "next/navigation";
-import labelImg from "./label.png";
-import labelPile1Img from "./labelpile.png";
-import labelPile2Img from "./labelpile2.webp";
 
 export default function Home() {
   const router = useRouter();
@@ -23,8 +20,8 @@ export default function Home() {
         <h3>DID YOU KNOW?</h3>
         <p>Natural flavor can mean hundreds of different compounds, and companies don't have to list them individually.</p>
       </div>
-      <img src={labelPile1Img.src} alt="Label pile image for decoration." id="labelPile1" />
-      <img src={labelPile2Img.src} alt="Label pile image for decoration." id="labelPile2" />
+      <img src="/labelpile.png" alt="Label pile image for decoration." id="labelPile1" />
+      <img src="/labelpile2.webp" alt="Label pile image for decoration." id="labelPile2" />
     </main>
   );
 }

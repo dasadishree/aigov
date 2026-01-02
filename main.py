@@ -12,13 +12,11 @@ url="https://ai.hackclub.com/proxy/v1/chat/completions"
 def explainIngredients(ingredientList):
     prompt=f"""
     Explain each ingredient below. 
-    For each ingredient, output in this format:
+    For each ingredient, output in this format. Do NOT add any other text or suggestions. Make this understandable to the average person so that they can make informed decisions and actually understand what they are eating/consuming
 
-    Ingredient:
-    - What it is (both scientifically and common names)
-    - Why it's used
-    - Possible heatlh/energy effects, sorted into positive and negative
-    Make this understandable to the average person so that they can make informed decisions and actually understand what they are eating/consuming
+    - Ingredient name: (ex: Sugar) dont write (Ingredient: Sugar), just write the ingredient name
+    - Why it's used (should be a bullet)
+    - Possible heatlh/energy effects: positive and negative (should be another bullet)
 
     Ingredients:
     {ingredientList}
@@ -29,7 +27,7 @@ def explainIngredients(ingredientList):
         "messages": [
             {"role": "system", "content": "You're an assistant/food nutrition scientist helping the average person understand ingredient lists for their food items"},
             {"role": "user", "content" : prompt}
-        ]
+        ] 
     }
 
     headers={
