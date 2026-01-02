@@ -6,14 +6,12 @@
   --background: #abb5ff;
   --foreground: #27356e;
 }
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #abb5ff;
@@ -92,7 +90,6 @@ body::after {
   opacity: 0.6;
   z-index: 0;
 }
-
 main {
   position: relative;
   height: 100vh;
@@ -192,7 +189,6 @@ h2{
 #start-button:active {
   transform: scale(1.02);
 }
-
 
 /* labels */
 #labelPile1, #labelPile2, #label1Pile1, #label1Pile2 {
@@ -311,7 +307,6 @@ h2{
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(39, 53, 110, 0.3);
 }
-
 .choose-content {
   display: flex;
   flex-direction: column;
@@ -606,24 +601,39 @@ h2{
   padding-bottom: 0;
 }
 
-.ingredient-item {
+.ingredient-name {
   font-weight: 700;
   font-size: 1.4vw;
   color: var(--foreground);
-  margin: 0 0 1vw 0;
+  margin: 0 0 1.2vw 0;
   padding: 0.8vw 0;
   letter-spacing: 0.01em;
   text-transform: capitalize;
 }
 
-.ingredient-description {
+.ingredient-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-left: 1.5vw;
+}
+
+.ingredient-bullets li {
   font-size: 1.1vw;
   line-height: 1.9;
   color: var(--foreground);
-  margin: 0;
-  padding-left: 1vw;
+  margin-bottom: 0.8vw;
   opacity: 0.85;
-  text-align: justify;
+  position: relative;
+}
+
+.ingredient-bullets li::before {
+  content: "•";
+  color: var(--foreground);
+  font-weight: bold;
+  position: absolute;
+  left: -1.2vw;
+  opacity: 0.6;
 }
 
 .result-content::-webkit-scrollbar {
@@ -663,6 +673,14 @@ h2{
   }
   
   .result-content {
+    font-size: 3vw;
+  }
+  
+  .ingredient-name {
+    font-size: 4vw;
+  }
+  
+  .ingredient-bullets li {
     font-size: 3vw;
   }
 }

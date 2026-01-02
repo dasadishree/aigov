@@ -55,46 +55,30 @@ export default function Paste() {
                         </button>
                     </div>
                     
+                    {/* displaying results */}
                     {result && (
                         <div className="result-container">
                             <h3>Analysis Results</h3>
+
                             <div className="result-content">
-                                {result.split(/\n\n+|\n(?=[A-Z][^:]*:)/).map((section, sectionIndex) => {
-                                    const lines = section.trim().split('\n').filter(l => l.trim().length > 0);
-                                    if (lines.length === 0) return null;
-                                    
-                                    // Check if this section starts with an ingredient name
-                                    const firstLine = lines[0].trim();
-                                    const isIngredientHeader = /^[A-Z][^:]*:/.test(firstLine) || 
-                                                              /^\*\*[^*]+\*\*/.test(firstLine) ||
-                                                              /^#+\s/.test(firstLine) ||
-                                                              /^[-•*]\s[A-Z]/.test(firstLine);
-                                    
-                                    if (isIngredientHeader) {
-                                        const ingredientName = firstLine
-                                            .replace(/^\*\*|\*\*$/g, '')
-                                            .replace(/^#+\s/, '')
-                                            .replace(/^[-•*]\s/, '')
-                                            .replace(/:\s*$/, '')
-                                            .trim();
-                                        const description = lines.slice(1).join(' ').trim();
+                                {result.split(/\n(?=\d+\.\s)/).map((block, index) => {
+                                    const lines = block.split("\n").filter(Boolean);
+                                    const title = lines[0].replace(/^\d+\.\s*/, "");
+                                    const bullets = lines.slice(1);
+
+                                    return (
+                                        <div key={index} className="ingredient-section">
+                                            <h4 className="ingredient-name"> 
+                                                {index+1}. {title}
+                                            </h4>
                                         
-                                        return (
-                                            <div key={sectionIndex} className="ingredient-section">
-                                                <div className="ingredient-item">{ingredientName}</div>
-                                                {description && (
-                                                    <div className="ingredient-description">{description}</div>
-                                                )}
-                                            </div>
-                                        );
-                                    } else {
-                                        // Regular paragraph
-                                        return (
-                                            <div key={sectionIndex} className="ingredient-description">
-                                                {section.trim()}
-                                            </div>
-                                        );
-                                    }
+                                        <ul className="ingredient-bullets">
+                                            {bullets.map((b,i) => (
+                                                <li key={i}>{b.replace(/^-s*/, "")}</li>
+                                            ))}
+                                        </ul>
+                                        </div>
+                                    );
                                 })}
                             </div>
                         </div>

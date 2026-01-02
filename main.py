@@ -12,11 +12,18 @@ url="https://ai.hackclub.com/proxy/v1/chat/completions"
 def explainIngredients(ingredientList):
     prompt=f"""
     Explain each ingredient below. 
-    For each ingredient, output in this format. Do NOT add any other text or suggestions. Make this understandable to the average person so that they can make informed decisions and actually understand what they are eating/consuming
 
-    - Ingredient name: (ex: Sugar) dont write (Ingredient: Sugar), just write the ingredient name
-    - Why it's used (should be a bullet)
-    - Possible heatlh/energy effects: positive and negative (should be another bullet)
+    RULES: 
+    - Output ONLY in the format shown
+    - Do NOT add introductions, summaries, or extra text
+    - Each ingredient must be numbered
+    - Use exactly three bullets per ingredient
+
+    FORMAT (EXACT)
+    - Ingredient name: (don't return "1. Ingredient name: sugar", just return "1. Sugar")
+    - Why it's used: ...
+    - Positive health/energy effects: ...
+    - Negative health/energy effects: ...
 
     Ingredients:
     {ingredientList}
