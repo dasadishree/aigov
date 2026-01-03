@@ -1,8 +1,6 @@
 #ai logic
-
 import os
 import requests
-# from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -45,9 +43,3 @@ def explainIngredients(ingredientList):
     response = requests.post(url, headers=headers, json=data)
     response.raise_for_status()
     return response.json()["choices"][0]["message"]["content"]
-
-#input test
-# ingredients = input("Paste ingredient list here:")
-# output=explainIngredients(ingredients)
-# print("\n---Ingredient Explanation---\n")
-# print(output)

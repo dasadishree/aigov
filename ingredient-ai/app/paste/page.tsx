@@ -33,6 +33,7 @@ export default function Paste() {
                 </svg>
             </button>
 
+            {/* input area */}
             <div className="paste-content">
                 <h2>Paste Your Ingredient List</h2>
                 
@@ -55,7 +56,7 @@ export default function Paste() {
                         </button>
                     </div>
                     
-                    {/* displaying results */}
+                    {/* results */}
                     {result && (
                         <div className="result-container">
                             <h3>Analysis Results</h3>

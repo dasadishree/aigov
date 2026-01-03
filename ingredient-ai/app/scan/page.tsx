@@ -83,8 +83,9 @@ export default function Scan() {
             </button>
 
             <div className="scan-content">
-                <h2>Scan Your Ingredient Label</h2>
+                <h2>Scan Ingredient Label</h2>
                 
+                {/* image upload */}
                 <div className={`scan-wrapper ${result ? 'has-results' : ''}`}>
                     <div className="scan-container">
                         <div className="image-upload-area">
@@ -116,6 +117,7 @@ export default function Scan() {
                             </label>
                         </div>
 
+                        {/* scan area */}
                         {imagePreview && (
                             <>
                                 <button 
@@ -148,7 +150,7 @@ export default function Scan() {
                             </>
                         )}
                     </div>
-                    
+                    {/* results */}
                     {result && (
                         <div className="result-container">
                             <h3>Analysis Results</h3>
