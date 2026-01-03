@@ -6,4 +6,5 @@ You've likely heard of the saying that you shouldn't eat something if you can't 
 
 ## Technical Components
 1st time building a project like this using AI (my past AI projects have been chatbots only), first time using Hack Club API, and also first time learning to use Next.js instead of HTML/CSS!
+- Frontend: Next.js & CSS. Backend: Flask/Python
 - Used AI to help me with some of the Regex / formatting of the analysis
