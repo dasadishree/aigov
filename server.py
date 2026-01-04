@@ -4,14 +4,12 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from main import explainIngredients
 from PIL import Image
-import os
-from dotenv import load_dotenv
 import requests
 
 app=Flask(__name__)
 CORS(app)
 
-OCR_SPACE_API_KEY=os.getenv("OCR_KEY")
+OCR_SPACE_API_KEY="K81622886288957"
 
 # ai analysis
 @app.route("/analyze", methods=["POST"])
