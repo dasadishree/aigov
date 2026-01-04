@@ -4,10 +4,12 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from main import explainIngredients
 from PIL import Image
-import pytesseract
+import easyocr
 
 app=Flask(__name__)
 CORS(app)
+
+reader = easyocr.Reader(["en"])
 
 # ai analysis
 @app.route("/analyze", methods=["POST"])
@@ -24,14 +26,16 @@ def analyze():
 # image scan
 @app.route("/scan", methods=["POST"])
 def scan():
-    if "image" not in request.files:
-        return jsonify({"error": "No image provided"}), 400
-    file=request.files["image"]
-    img = Image.open(file)
+    file = request.files.get("image")
+    if not file:
+        return jsonify({"error": "No image upploaded"}), 400
     
-    text = pytesseract.image_to_string(img)
-    text=text.strip()
+    img = Image.open(file.stream).convert("RGB")
+    ocr_results = reader.readtext(img)
+    text = " ".join([r[1] for r in ocr_results])
     return jsonify({"text": text})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
