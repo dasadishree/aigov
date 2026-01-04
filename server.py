@@ -5,11 +5,12 @@ from flask_cors import CORS
 from main import explainIngredients
 from PIL import Image
 import requests
+import os
 
 app=Flask(__name__)
 CORS(app)
 
-OCR_SPACE="K81622886288957"
+OCR_SPACE=os.environ.get("OCR_KEY")
 # ai analysis
 @app.route("/analyze", methods=["POST"])
 def analyze():
