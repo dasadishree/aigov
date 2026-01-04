@@ -36,7 +36,7 @@ export default function Scan() {
             const formData = new FormData();
             formData.append("image", image);
 
-            const res = await fetch("http://127.0.0.1:5000/scan", {
+            const res = await fetch("https://aigov-backend.onrender.com/scan", {
                 method: "POST",
                 body: formData,
             });
