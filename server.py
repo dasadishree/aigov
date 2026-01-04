@@ -9,8 +9,7 @@ import requests
 app=Flask(__name__)
 CORS(app)
 
-OCR_SPACE_API_KEY="K81622886288957"
-
+OCR_SPACE="K81622886288957"
 # ai analysis
 @app.route("/analyze", methods=["POST"])
 def analyze():
@@ -34,7 +33,7 @@ def scan():
         response=requests.post(
             "https://api.ocr.space/parse/image",
             files={"filename": (file.filename, file.stream, file.content_type)},
-            data={"apikey": OCR_SPACE_API_KEY, "language": "eng"},
+            data={"apikey": OCR_SPACE, "language": "eng"},
         )
         result=response.json()
         text=result.get("ParsedResults", [{}])[0].get("ParsedText", "")
