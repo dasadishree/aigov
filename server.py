@@ -4,12 +4,13 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from main import explainIngredients
 from PIL import Image
-import easyocr
+import os
+from dotenv import load_dotenv
 
 app=Flask(__name__)
 CORS(app)
 
-reader = easyocr.Reader(["en"])
+OCR_SPACE_API_KEY=os.getenv("OCR_KEY")
 
 # ai analysis
 @app.route("/analyze", methods=["POST"])
@@ -30,10 +31,17 @@ def scan():
     if not file:
         return jsonify({"error": "No image upploaded"}), 400
     
-    img = Image.open(file.stream).convert("RGB")
-    ocr_results = reader.readtext(img)
-    text = " ".join([r[1] for r in ocr_results])
-    return jsonify({"text": text})
+    try:
+        response=requests.post(
+            "https://api.ocr.space/parse/image",
+            files={"filename": (file.filename, file.stream, file.content_type)},
+            data={"apikey": OCR_SPACE_API_KEY, "language": "eng"},
+        )
+        result=response.json()
+        text=result.get("ParsedResults", [{}])[0].get("ParsedText", "")
+        return jsonify({"text": text})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     import os
