@@ -6,6 +6,7 @@ from main import explainIngredients
 from PIL import Image
 import os
 from dotenv import load_dotenv
+import requests
 
 app=Flask(__name__)
 CORS(app)
