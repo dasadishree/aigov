@@ -9,3 +9,4 @@ You've likely heard of the saying that you shouldn't eat something if you can't 
 1st time building a project like this using AI (my past AI projects have been chatbots only), first time using Hack Club API, and also first time learning to use Next.js instead of HTML/CSS!
 - Frontend: Next.js & CSS. Backend: Flask/Python
 - Used AI to help me with some of the Regex/format debugging
+<img width="1470" height="956" alt="Screenshot 2026-01-31 at 2 43 09 PM" src="https://github.com/user-attachments/assets/e15a5577-253e-4fe0-8f81-46cf59e0ae90" />
